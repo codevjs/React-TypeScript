@@ -1,0 +1,17 @@
+/* sider menu item icon & text */
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: rgb(17, 27, 38) !important;
+}
+.ant-menu-dark .ant-menu-item-selected .anticon, .ant-menu-dark .ant-menu-item-selected .anticon + span {
+    color:rgb(23, 125, 220) !important;
+}
+.ant-menu-dark.ant-menu-inline .ant-menu-item::after {
+    position: absolute;
+    right: 0;
+    border-right: 3px solid #177ddc !important;
+}
+
+/* form item  */
+.ant-form-item {
+    margin-bottom: 10px !important;
+}

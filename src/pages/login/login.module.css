@@ -1,0 +1,45 @@
+.card {
+    height: fit-content;
+}
+.cardLogin {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.mobileHidden {
+    display: block;
+}
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+    .mobileHidden {
+        display: none;
+    }
+}
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+    .card {
+        height: 80vh;
+        padding-top: 40%;
+    }
+    .cardLogin {
+        margin: 0;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 0;
+        width: 100%;
+    }
+    .mobileHidden {
+        display: none;
+    }
+}
