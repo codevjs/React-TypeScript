@@ -1,36 +1,25 @@
-.layoutHeader {
-    background: #141414;
-    padding: 0 50px;
+.layout {
+    margin-left: 250px;
 }
-.inline {
-    display: inline;
+.layoutContent {
+    padding: 20px 50px;
 }
-.ul {
-    list-style: none;
-    padding: 0;
-    width: 300px;
-}
-
 /*
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
 */
 @media (min-width: 1025px) and (max-width: 1280px) {
 
-    .container {
-        padding: 0 5em;
-    }
 }
-
 /*
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) {
-
-
+    .layout {
+        margin-left: 0;
+    }
 }
-
 /*
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -40,14 +29,16 @@
         margin-left: 0;
     }
 }
-
 /*
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
 @media (min-width: 481px) and (max-width: 767px) {
-    .layoutHeader {
-        padding: 0 15px;
+    .layout {
+        margin-left: 0;
+    }
+    .layoutContent {
+        padding: 10px 15px;
     }
 }
 /*
@@ -55,8 +46,10 @@
   ##Screen = B/w 320px to 479px
 */
 @media (min-width: 320px) and (max-width: 480px) {
-    .layoutHeader {
-        padding: 0 15px;
+    .layout {
+        margin-left: 0;
+    }
+    .layoutContent {
+        padding: 20px 15px;
     }
 }
-

@@ -17,7 +17,7 @@ import {AuthContext} from "../../components/context/auth.context";
 const Login: React.FC = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const {authenticated}       = useContext(AuthContext);
+    const {authenticated}       = useContext<any>(AuthContext);
 
     /**
      * execute when form is submit
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
     };
 
     return authenticated
-        ? <Redirect to={'/manage/dashbord'}/>
+        ? <Redirect to={'/manage/dashboard'}/>
         : (
             <Layout>
                 <Container>

@@ -1,3 +1,14 @@
+/* import font family */
+@font-face {
+    font-family: 'quicksands';
+    src: url('../fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+}
+
+/* set font */
+body {
+    font-family: quicksands, sans-serif !important;
+}
+
 /* sider menu item icon & text */
 .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background: rgb(17, 27, 38) !important;

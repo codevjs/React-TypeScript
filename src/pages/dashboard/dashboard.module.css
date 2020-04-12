@@ -1,13 +1,9 @@
 .layout {
   background: #000;
 }
-
-.layoutContent {
-  padding: 20px 50px;
-}
-
 .content {
   padding: 24px;
   min-height: 280px;
   background: #141414;
 }
+

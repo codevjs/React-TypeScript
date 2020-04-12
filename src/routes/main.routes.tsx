@@ -7,8 +7,8 @@ import Spinner from "../components/spin";
 import AuthRoute from "./auth.routes";
 
 // pages
-const Home   : React.FC = React.lazy(() => import('../pages/home'));
-const Login  : React.FC = React.lazy(() => import('../pages/login'));
+const Dashboard : React.FC = React.lazy(() => import('../pages/dashboard'));
+const Login     : React.FC = React.lazy(() => import('../pages/login'));
 
 const Router : React.FC = () => {
 
@@ -17,8 +17,8 @@ const Router : React.FC = () => {
         <React.Suspense fallback={<Spinner tip={'fetching component ...'} spinning={true} />}>
             <BrowserRouter>
                 <Switch>
-                    <Route exact={true} path={'/login'} component={Login} />
-                    <AuthRoute  path={'/'} component={Home} />
+                    <Route path={'/login'} component={Login} />
+                    <AuthRoute  path={'/manage/dashboard'} component={Dashboard} />
                 </Switch>
             </BrowserRouter>
         </React.Suspense>
