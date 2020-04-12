@@ -12,6 +12,9 @@
 .mobileHidden {
     display: block;
 }
+.desktopHidden {
+    display: none;
+}
 /*
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -20,6 +23,9 @@
     .mobileHidden {
         display: none;
     }
+    .desktopHidden {
+        display: block;
+    }
 }
 /*
   ##Device = Most of the Smartphones Mobiles (Portrait)
@@ -27,8 +33,8 @@
 */
 @media (min-width: 320px) and (max-width: 480px) {
     .card {
-        height: 80vh;
-        padding-top: 40%;
+        height: fit-content;
+        padding-top: 0;
     }
     .cardLogin {
         margin: 0;
@@ -41,5 +47,8 @@
     }
     .mobileHidden {
         display: none;
+    }
+    .desktopHidden {
+        display: block;
     }
 }

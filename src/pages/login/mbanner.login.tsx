@@ -63,8 +63,8 @@ function TweenOneG(props : any) {
 export default function Banner() {
     return (
         <svg
-            width="682px"
-            height="500px"
+            width="350px"
+            height="300px"
             viewBox="0 0 482 500"
         >
             <defs>

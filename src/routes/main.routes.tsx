@@ -7,8 +7,9 @@ import Spinner from "../components/spin";
 import AuthRoute from "./auth.routes";
 
 // pages
-const Dashboard : React.FC = React.lazy(() => import('../pages/dashboard'));
 const Login     : React.FC = React.lazy(() => import('../pages/login'));
+const Dashboard : React.FC = React.lazy(() => import('../pages/dashboard'));
+const Account   : React.FC = React.lazy(() => import('../pages/account'));
 
 const Router : React.FC = () => {
 
@@ -19,6 +20,7 @@ const Router : React.FC = () => {
                 <Switch>
                     <Route path={'/login'} component={Login} />
                     <AuthRoute  path={'/manage/dashboard'} component={Dashboard} />
+                    <AuthRoute  path={'/manage/setting/account'} component={Account} />
                 </Switch>
             </BrowserRouter>
         </React.Suspense>

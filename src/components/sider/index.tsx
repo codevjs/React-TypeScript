@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {Layout, Menu, Button} from 'antd';
-import {UserOutlined, BarChartOutlined, MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons';
+import {UserOutlined, BarChartOutlined, PicLeftOutlined, PicRightOutlined} from '@ant-design/icons';
 // style
 import styles from './sider.module.css'
 
@@ -14,14 +14,12 @@ const Sider: React.FC = () => {
         setSelected(window.location.pathname);
     }, []);
 
-    const onBreakpoint = (broken : boolean) : void => {
-
+    const onBreakpoint = (broken: boolean): void => {
         setCollapse(broken)
     };
 
-    const changeCollapse = () : void => {
-
-        setCollapse( prevState  =>  !prevState)
+    const onTrigger = (): void => {
+        setCollapse(prevState => !prevState)
     };
 
     return (
@@ -35,11 +33,8 @@ const Sider: React.FC = () => {
             onBreakpoint={onBreakpoint}
         >
             <div className={styles.buttonCollapse}>
-                <Button shape={'circle'} size={'large'} onClick={changeCollapse}>
-                    {
-                        collapse ?  <MenuUnfoldOutlined /> : <MenuFoldOutlined />
-                    }
-
+                <Button shape={'circle'} size={'large'} onClick={onTrigger}>
+                    {!collapse ? <PicLeftOutlined/> : <PicRightOutlined/>}
                 </Button>
             </div>
             <div className={styles.logo}/>
@@ -53,9 +48,11 @@ const Sider: React.FC = () => {
                         <span className="nav-text">Dashboard</span>
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="2">
-                    <UserOutlined />
-                    <span className="nav-text">My Account</span>
+                <Menu.Item key="/manage/setting/account">
+                    <Link to={'/manage/setting/account'}>
+                        <UserOutlined/>
+                        <span className="nav-text">My Account</span>
+                    </Link>
                 </Menu.Item>
             </Menu>
         </Layout.Sider>

@@ -5,7 +5,6 @@ import {Store} from 'rc-field-form/lib/interface'
 
 const FormLogin: React.FC<Props> = ({onFinish, loading}) => {
 
-
     return (
         <Spin spinning={loading}>
             <Form
@@ -43,7 +42,7 @@ const FormLogin: React.FC<Props> = ({onFinish, loading}) => {
                 </Form.Item>
                 <Form.Item>
                     <Button
-                        ghost={true}
+                        ghost={false}
                         type="primary"
                         htmlType="submit"
                         size={'large'}
@@ -56,7 +55,6 @@ const FormLogin: React.FC<Props> = ({onFinish, loading}) => {
         </Spin>
     )
 };
-
 
 interface Props {
     onFinish: (values: Store) => void;

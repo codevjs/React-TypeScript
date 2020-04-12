@@ -8,8 +8,9 @@ import {Store} from 'rc-field-form/lib/interface'
 import AuthFirebase from "../../utils/firebase/auth.firebase";
 
 // component
-import Container from '../../components/container';
+import Container from "../../components/container";
 import Banner from "./banner.login";
+import MBanner from "./mbanner.login";
 import FormLogin from "./form.login";
 import SocialNetwork from "./socialnetwork.login";
 import {AuthContext} from "../../components/context/auth.context";
@@ -17,7 +18,7 @@ import {AuthContext} from "../../components/context/auth.context";
 const Login: React.FC = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const {authenticated}       = useContext<any>(AuthContext);
+    const {authenticated} = useContext<any>(AuthContext);
 
     /**
      * execute when form is submit
@@ -29,8 +30,19 @@ const Login: React.FC = () => {
             const auth: any = new AuthFirebase();
             await auth.signinWihtEmiailAndPassword(values.email, values.password);
         } catch (error) {
+            let errorTitle: string;
+            switch (error.code) {
+                case 'auth/wrong-password' :
+                    errorTitle = 'Wrong Password';
+                    break;
+                case 'auth/user-not-found' :
+                    errorTitle = 'User Not Found';
+                    break;
+                default :
+                    errorTitle = 'Sign in failed'
+            }
             notification['error']({
-                message: 'Gagal masuk',
+                message: errorTitle,
                 description: error.message
             });
             setLoading(false)
@@ -51,16 +63,20 @@ const Login: React.FC = () => {
                                     and unlimited collaborators.
                                 </p>
                                 <Card className={styles.card}>
+                                    <div className={styles.desktopHidden}>
+                                        <MBanner/>
+                                    </div>
+                                    <h3>Sign in</h3>
                                     <FormLogin
                                         onFinish={onFinish}
                                         loading={loading}
                                     />
                                 </Card>
                                 <Divider style={{margin: '10px 0'}}>
-                                    Atau
+                                    Or
                                 </Divider>
                                 <Card>
-                                    <p>Masuk dengan </p>
+                                    <p>Sign in with</p>
                                     <SocialNetwork/>
                                 </Card>
                             </div>
