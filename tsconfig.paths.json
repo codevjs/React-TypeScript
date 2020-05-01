@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "paths" : {
+          "components" : ["./components"],
+          "containers" : ["./containers"],
+          "modules" : ["./modules"],
+          "routes" : ["./routes"],
+          "services" : ["./services"]
+        }
+    }
+}

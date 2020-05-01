@@ -13,13 +13,19 @@ body {
 .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background: rgb(17, 27, 38) !important;
 }
-.ant-menu-dark .ant-menu-item-selected .anticon, .ant-menu-dark .ant-menu-item-selected .anticon + span {
+.ant-menu-dark .ant-menu-item-selected .anticon, .ant-menu-dark .ant-menu-item-selected > a, .ant-menu-dark .ant-menu-item-selected .anticon + span {
     color:rgb(23, 125, 220) !important;
 }
 .ant-menu-dark.ant-menu-inline .ant-menu-item::after {
     position: absolute;
     right: 0;
     border-right: 3px solid #177ddc !important;
+}
+.ant-menu-dark .ant-menu-submenu-selected, .ant-menu-dark .ant-menu-submenu-selected >.ant-menu-submenu-title:hover {
+    color:rgb(23, 125, 220) !important;
+}
+.ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after {
+    background: rgb(23, 125, 220) !important;
 }
 
 /* form item  */

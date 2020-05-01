@@ -1,24 +1,24 @@
 import React, {useState, useContext} from 'react';
 import {Layout, Card, Row, Col, Divider, notification} from 'antd';
 import {Redirect} from "react-router-dom";
-import styles from './login.module.css';
 import {Store} from 'rc-field-form/lib/interface'
+import {AuthFirebase} from "services";
+import {Auth} from "modules";
+import {LoginContainer as Container} from "containers";
 
-// utils
-import AuthFirebase from "../../utils/firebase/auth.firebase";
+// styles
+import styles from './login.module.css';
 
 // component
-import Container from "../../components/container";
 import Banner from "./banner.login";
 import MBanner from "./mbanner.login";
 import FormLogin from "./form.login";
 import SocialNetwork from "./socialnetwork.login";
-import {AuthContext} from "../../components/context/auth.context";
 
 const Login: React.FC = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const {authenticated} = useContext<any>(AuthContext);
+    const {authenticated}       = useContext<any>(Auth.AuthContext);
 
     /**
      * execute when form is submit
@@ -50,7 +50,7 @@ const Login: React.FC = () => {
     };
 
     return authenticated
-        ? <Redirect to={'/manage/dashboard'}/>
+        ? <Redirect to={'/manage/setting/account'}/>
         : (
             <Layout>
                 <Container>

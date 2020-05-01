@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
+import  Router  from "routes";
+
+//styles
 import './assets/styles/global.style.css';
-import Router from "./routes/main.routes";
 
 ReactDOM.render(<Router />, document.getElementById('root'));
 

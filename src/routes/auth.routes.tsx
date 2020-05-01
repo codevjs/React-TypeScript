@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import {Route, Redirect} from "react-router-dom";
-import { AuthContext} from "../components/context/auth.context";
+import {Auth} from "modules";
 
 const AuthRoute : React.FC<any> = ({ component : Component , ...rest  }) => {
 
-    const {authenticated } = useContext(AuthContext);
+    const {authenticated } = useContext(Auth.AuthContext);
 
     return (
         <Route
@@ -18,4 +18,4 @@ const AuthRoute : React.FC<any> = ({ component : Component , ...rest  }) => {
     )
 };
 
-export default AuthRoute
+export default AuthRoute;

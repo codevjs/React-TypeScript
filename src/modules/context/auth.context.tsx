@@ -1,11 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {User} from "firebase";
-
-// utils
-import AuthFirebase from "../../utils/firebase/auth.firebase";
-
-// component
-import Spinner from "../spin";
+import {AuthFirebase} from "services";
+import {Spinner} from "components";
 
 // We define our type for the context properties right here
 type ContextProps = {
@@ -33,7 +29,7 @@ export const AuthProvider : React.FC<ProviderProps> = ({children}) => {
             const fbAuth : any = new AuthFirebase();
             fbAuth.auth().onAuthStateChanged( async (user : User | null)  => {
                 if (user){
-                    let idTokenResult : any  = await fbAuth.getIdTokenResult();
+                    let idTokenResult : any = await fbAuth.getIdTokenResult();
                     let status : string = idTokenResult.claims.status;
                     setAuthenticated(true);
                     setUser({...user, status });
@@ -47,17 +43,8 @@ export const AuthProvider : React.FC<ProviderProps> = ({children}) => {
     }, []);
 
     return (
-        <AuthContext.Provider
-            value={{
-                authenticated,
-                user
-            }}
-        >
-            {
-                loading
-                    ? <Spinner spinning={true} tip={'connecting to the server ...'} />
-                    : children
-            }
+        <AuthContext.Provider value={{ authenticated, user}}>
+            {loading ? <Spinner spinning={true} tip={'connecting to the server ...'} /> : children}
         </AuthContext.Provider>
     )
 };

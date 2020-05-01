@@ -1,4 +1,5 @@
 import InitFirebase from './init.firebase';
+import firebase from "firebase/app";
 
 class AuthFirebase extends InitFirebase {
 
@@ -12,15 +13,25 @@ class AuthFirebase extends InitFirebase {
             })
     }
 
-    public getIdTokenResult() : any {
+    public getIdTokenResult() : Promise<firebase.auth.IdTokenResult> | undefined {
         return this.auth().currentUser?.getIdTokenResult(true)
             .then(idTokenResult => {
                 return Promise.resolve(idTokenResult)
             })
+            .catch(error => {
+                return Promise.reject(error?.message)
+            })
     }
 
-    public siginOut() : void {
-        this.auth().signOut();
+    public siginOut() : Promise<string> {
+        return this.auth()
+            .signOut()
+            .then(() => {
+                return Promise.resolve('user signout.')
+            })
+            .catch(error => {
+                return Promise.reject(error?.message)
+            })
     }
 
 }

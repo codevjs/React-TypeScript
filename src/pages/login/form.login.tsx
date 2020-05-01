@@ -6,7 +6,7 @@ import {Store} from 'rc-field-form/lib/interface'
 const FormLogin: React.FC<Props> = ({onFinish, loading}) => {
 
     return (
-        <Spin spinning={loading}>
+        <Spin spinning={false}>
             <Form
                 name="normal_login"
                 className="login-form"
@@ -47,6 +47,7 @@ const FormLogin: React.FC<Props> = ({onFinish, loading}) => {
                         htmlType="submit"
                         size={'large'}
                         style={{width: '100%'}}
+                        loading={loading}
                     >
                         Log in
                     </Button>

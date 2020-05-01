@@ -1,6 +1,10 @@
 .header {
     background: #141414;
     padding: 0;
+    border-bottom: 1px solid #303030;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 }
 .layoutHeader {
     padding: 0 50px;
